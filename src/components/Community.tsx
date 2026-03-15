@@ -1,63 +1,62 @@
-// src/components/Community.tsx
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Camera } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const activities = [
   { id: 1, url: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80', title: 'Tech Meetup' },
   { id: 2, url: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80', title: 'Gathering' },
+  { id: 3, url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80', title: 'Workshop Coding' },
+  { id: 4, url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80', title: 'Startup Pitching' },
+  { id: 5, url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80', title: 'International Seminar' },
 ];
 
 export default function Community() {
-  const [isOpen, setIsOpen] = useState(false);
+  // Kita menduplikasi array agar transisi scroll terlihat seamless (tidak terputus)
+  const duplicatedActivities = [...activities, ...activities];
 
   return (
-    // Pastikan ID ini unik dan tidak ada di file lain
-    <section id="community" className="relative py-24 bg-gray-50"> 
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold mb-6">Our Community</h2>
-        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          Klik tombol di bawah untuk melihat keseruan kegiatan kami.
+    <section id="community" className="py-24 bg-gray-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+        <h2 className="text-4xl font-bold mb-4">Our Community Activities</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Keseruan dan kolaborasi tanpa batas di setiap kegiatan OFFICE FO.ID.
         </p>
-        <button 
-          onClick={() => setIsOpen(true)}
-          className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 mx-auto hover:bg-blue-700 transition-all active:scale-95"
-        >
-          <Camera size={20} /> Lihat Galeri Kegiatan
-        </button>
+      </div>
 
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-xl p-6 flex flex-col items-center justify-center"
+      {/* Kontainer Slider */}
+      <div className="relative flex overflow-hidden">
+        <motion.div
+          className="flex whitespace-nowrap gap-6"
+          animate={{
+            x: ['0%', '-50%'], // Geser dari awal ke tengah (setengah dari total lebar duplikasi)
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: 'loop',
+              duration: 30, // Kecepatan geser (makin besar makin lambat)
+              ease: 'linear',
+            },
+          }}
+        >
+          {duplicatedActivities.map((img, index) => (
+            <div
+              key={`${img.id}-${index}`}
+              className="relative w-[300px] md:w-[450px] aspect-video flex-shrink-0 rounded-2xl overflow-hidden shadow-lg group"
             >
-              <button 
-                onClick={() => setIsOpen(false)} 
-                className="absolute top-10 right-10 text-white hover:rotate-90 transition-transform"
-              >
-                <X size={40}/>
-              </button>
-              
-              <motion.div 
-                initial={{ y: 50, opacity: 0 }} 
-                animate={{ y: 0, opacity: 1 }} 
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full"
-              >
-                {activities.map(img => (
-                  <div key={img.id} className="group rounded-xl overflow-hidden aspect-video relative shadow-2xl">
-                    <img src={img.url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={img.title} />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                        <p className="text-white font-medium">{img.title}</p>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              <img
+                src={img.url}
+                alt={img.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+                <p className="text-white font-semibold text-lg">{img.title}</p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Efek Fade di sisi kiri dan kanan agar terlihat halus */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10" />
       </div>
     </section>
   );

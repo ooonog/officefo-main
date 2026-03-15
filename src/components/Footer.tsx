@@ -24,7 +24,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/officefo.id"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-500 transition-all hover:scale-110"
@@ -32,7 +32,7 @@ export default function Footer() {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/bussinessfo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-500 transition-all hover:scale-110"
@@ -40,7 +40,7 @@ export default function Footer() {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/office-fo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-500 transition-all hover:scale-110"
@@ -48,7 +48,7 @@ export default function Footer() {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://discord.com"
+                href="https://discord.gg/egCtxvBgEQ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-500 transition-all hover:scale-110"

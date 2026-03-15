@@ -12,13 +12,16 @@ export default function Community() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section id="community" className="py-24 bg-gray-50">
+    // Pastikan ID ini unik dan tidak ada di file lain
+    <section id="community" className="relative py-24 bg-gray-50"> 
       <div className="max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-6">Our Community</h2>
-        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Klik tombol di bawah untuk melihat keseruan kegiatan kami.</p>
+        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+          Klik tombol di bawah untuk melihat keseruan kegiatan kami.
+        </p>
         <button 
           onClick={() => setIsOpen(true)}
-          className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 mx-auto hover:bg-blue-700 transition-all"
+          className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 mx-auto hover:bg-blue-700 transition-all active:scale-95"
         >
           <Camera size={20} /> Lihat Galeri Kegiatan
         </button>
@@ -26,14 +29,29 @@ export default function Community() {
         <AnimatePresence>
           {isOpen && (
             <motion.div 
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl p-6 flex flex-col items-center justify-center"
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-xl p-6 flex flex-col items-center justify-center"
             >
-              <button onClick={() => setIsOpen(false)} className="absolute top-10 right-10 text-white"><X size={40}/></button>
-              <motion.div initial={{ y: 50 }} animate={{ y: 0 }} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+              <button 
+                onClick={() => setIsOpen(false)} 
+                className="absolute top-10 right-10 text-white hover:rotate-90 transition-transform"
+              >
+                <X size={40}/>
+              </button>
+              
+              <motion.div 
+                initial={{ y: 50, opacity: 0 }} 
+                animate={{ y: 0, opacity: 1 }} 
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full"
+              >
                 {activities.map(img => (
-                  <div key={img.id} className="rounded-xl overflow-hidden aspect-video">
-                    <img src={img.url} className="w-full h-full object-cover" alt={img.title} />
+                  <div key={img.id} className="group rounded-xl overflow-hidden aspect-video relative shadow-2xl">
+                    <img src={img.url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={img.title} />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                        <p className="text-white font-medium">{img.title}</p>
+                    </div>
                   </div>
                 ))}
               </motion.div>

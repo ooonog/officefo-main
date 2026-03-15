@@ -106,10 +106,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 pt-8">
-  <p className="text-center text-gray-400">
-    &copy; {new Date().getFullYear()} <span className="font-bold text-gray-300">OFFICE FO.ID</span> - All rights reserved.
-  </p>
-</div>
+          <p className="text-center text-gray-400">
+            &copy; {new Date().getFullYear()} <span className="font-bold text-gray-300">OFFICE FO.ID</span> - All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -98,16 +98,6 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Events
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
@@ -116,10 +106,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 pt-8">
-          <p className="text-center text-gray-400">
-            &copy; {new Date().getFullYear()} OFFICE FO.ID Community. All rights reserved.
-          </p>
-        </div>
+  <p className="text-center text-gray-400">
+    &copy; {new Date().getFullYear()} <span className="font-bold text-gray-300">OFFICE FO.ID</span> - All rights reserved.
+  </p>
+</div>
       </div>
     </footer>
   );

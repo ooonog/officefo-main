@@ -39,11 +39,11 @@ export default function Achievements() {
             </p>
             <div className="flex gap-8">
               <div className="bg-white/50 backdrop-blur-md p-4 rounded-xl shadow-sm border border-white">
-                <span className="block text-3xl font-bold text-blue-600">100+</span>
+                <span className="block text-3xl font-bold text-blue-600">20+</span>
                 <span className="text-sm text-gray-500 font-medium">Members</span>
               </div>
               <div className="bg-white/50 backdrop-blur-md p-4 rounded-xl shadow-sm border border-white">
-                <span className="block text-3xl font-bold text-cyan-500">50+</span>
+                <span className="block text-3xl font-bold text-cyan-500">10+</span>
                 <span className="text-sm text-gray-500 font-medium">Projects</span>
               </div>
             </div>

@@ -17,7 +17,6 @@ export default function Achievements() {
     fetchAchievements();
   }, []);
 
-  // Menduplikasi data agar scroll terlihat tidak terputus (infinite)
   const duplicatedAchievements = [...achievements, ...achievements, ...achievements];
 
   return (
@@ -68,54 +67,72 @@ export default function Achievements() {
           <div className="h-1.5 w-20 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto rounded-full"></div>
         </div>
 
-        {/* Container Scroller */}
-        <div className="relative h-[500px] overflow-hidden rounded-3xl bg-slate-200/50 border border-white shadow-inner">
-          {/* Overlay Gradient (Top & Bottom) agar efek kartu muncul/hilang halus */}
-          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-slate-50 to-transparent z-10" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-50 to-transparent z-10" />
+        {/* Container Scroller dengan styling yang lebih clean sesuai gambar */}
+        <div className="relative h-[600px] overflow-hidden rounded-3xl bg-gray-50/50 border border-gray-100 shadow-inner">
+          {/* Overlay Fading Top & Bottom */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-gray-50 via-gray-50/80 to-transparent z-10" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-gray-50 via-gray-50/80 to-transparent z-10" />
 
           <motion.div
-            className="flex flex-col gap-6 p-6"
+            className="flex flex-col gap-5 p-8"
             animate={{
-              y: [0, -1000], // Menyesuaikan dengan total tinggi konten
+              y: [0, -1200], // Sesuaikan angka ini jika jumlah data sangat banyak
             }}
             transition={{
               y: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 25,
+                duration: 30,
                 ease: "linear",
               },
             }}
-            whileHover={{ animationPlayState: 'paused' }} // Berhenti saat di-hover
+            whileHover={{ animationPlayState: 'paused' }}
           >
             {duplicatedAchievements.map((item, idx) => (
               <div
                 key={`${item.id}-${idx}`}
-                className="group relative w-full h-40 flex items-center bg-white/40 backdrop-blur-lg border border-white/60 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:bg-white/60 transition-all duration-300"
+                className="group relative w-full flex items-center bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300"
               >
-                {/* Image Thumbnail */}
-                <div className="w-40 h-full overflow-hidden">
-                  <img
-                    src={item.image_url}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    alt={item.title}
-                  />
+                {/* Profile Image (Sisi Kiri - Lingkaran sesuai gambar) */}
+                <div className="relative flex-shrink-0 w-20 h-20 md:w-24 md:h-24">
+                  <div className="w-full h-full rounded-full overflow-hidden border-2 border-blue-50 p-1 bg-white">
+                    <img
+                      src={item.image_url}
+                      className="w-full h-full object-cover rounded-full"
+                      alt={item.title}
+                    />
+                  </div>
+                  {/* Badge Icon kecil di sudut foto (Opsional) */}
+                  <div className="absolute -bottom-1 -right-1 bg-blue-600 text-white p-1.5 rounded-full shadow-lg">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.64.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                    </svg>
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="flex-1 p-6">
-                  <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mt-1 line-clamp-2 italic">
-                    "{item.description}"
+                {/* Content (Sisi Kanan - Sesuai Gambar) */}
+                <div className="ml-6 flex-1">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <span className="text-[11px] font-medium text-gray-400 uppercase tracking-widest mt-1 md:mt-0">
+                      verified achievement
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">
+                    {item.description}
                   </p>
-                </div>
 
-                {/* Glassy Tag */}
-                <div className="absolute top-4 right-4 px-3 py-1 bg-blue-500/10 backdrop-blur-md border border-blue-500/20 rounded-full">
-                  <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Achievement</span>
+                  <div className="flex items-center gap-4 text-xs font-medium text-gray-500">
+                    <span className="flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                      Active Member
+                    </span>
+                    <span className="text-gray-300">|</span>
+                    <span>OFFICE FO.ID</span>
+                  </div>
                 </div>
               </div>
             ))}

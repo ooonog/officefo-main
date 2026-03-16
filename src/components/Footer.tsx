@@ -87,22 +87,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="font-bold text-lg mb-4">Community</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Join Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
         <div className="border-t border-gray-700 pt-8">

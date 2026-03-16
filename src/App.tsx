@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Achievements from './components/Achievement';
 import Projects from './components/Projects';
+import Clients from './components/Clients';
 import Community from './components/Community';
 import Footer from './components/Footer';
 
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <Achievements />
       <Projects />
+      <Clients />
       <Community />
       <Footer />
     </div>

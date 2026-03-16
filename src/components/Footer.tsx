@@ -71,7 +71,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-center md:text-left text-gray-500 text-sm italic">
-            &copy; {new Date().getFullYear()} <span className="font-bold text-gray-300 not-italic">OFFICE FO.ID</span> - Empowering the Digital Future🌐
+            &copy; {new Date().getFullYear()} <span className="font-bold text-gray-300 not-italic">OFFICE FO.ID</span> - All Rights Reserved.
           </p>
         </div>
       </div>

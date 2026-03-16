@@ -80,7 +80,7 @@ export default function Achievements() {
           >
             <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-2xl group">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+                src="https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/home2.JPG"
                 alt="Team collaboration"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />

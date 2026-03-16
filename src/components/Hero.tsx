@@ -2,9 +2,10 @@ import { ChevronDown } from 'lucide-react';
 
 export default function Hero() {
   const scrollToNext = () => {
-    const achievementsSection = document.getElementById('achievements');
-    if (achievementsSection) {
-      achievementsSection.scrollIntoView({ behavior: 'smooth' });
+    // Ubah 'achievements' menjadi 'projects' agar mengarah ke section Our Projects
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -17,7 +18,7 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage:
-            'url(https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+            'url(https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/home1.JPG)',
         }}
       />
 
@@ -44,7 +45,7 @@ export default function Hero() {
 
         <div className="flex justify-center">
           <button
-            onClick={() => scrollToNext()}
+            onClick={() => scrollToNext()} // Sekarang memicu scroll ke 'projects'
             className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             Explore Our Work

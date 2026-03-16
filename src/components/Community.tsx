@@ -9,6 +9,7 @@ const activities = [
 ];
 
 export default function Community() {
+  // Kita menduplikasi array agar transisi scroll terlihat seamless (tidak terputus)
   const duplicatedActivities = [...activities, ...activities];
 
   return (
@@ -25,13 +26,13 @@ export default function Community() {
         <motion.div
           className="flex whitespace-nowrap gap-6"
           animate={{
-            x: ['0%', '-50%'], 
+            x: ['0%', '-50%'], // Geser dari awal ke tengah (setengah dari total lebar duplikasi)
           }}
           transition={{
             x: {
               repeat: Infinity,
               repeatType: 'loop',
-              duration: 30, 
+              duration: 30, // Kecepatan geser (makin besar makin lambat)
               ease: 'linear',
             },
           }}

@@ -16,7 +16,7 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Home', id: 'home' },
-    { name: 'Achievements', id: 'achievements' },
+    { name: 'Profiles', id: 'profiles' },
     { name: 'Projects', id: 'projects' },
     { name: 'Community', id: 'community' },
     { name: 'Contact', id: 'contact' },
@@ -42,8 +42,8 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'py-3 bg-white/80 backdrop-blur-lg shadow-lg'
-          : 'py-5 bg-transparent'
+        ? 'py-3 bg-white/80 backdrop-blur-lg shadow-lg'
+        : 'py-5 bg-transparent'
         }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -54,8 +54,13 @@ export default function Header() {
           className="flex items-center space-x-3 group cursor-pointer"
           onClick={() => scrollToSection('home')}
         >
-          <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <span className="text-white font-bold text-lg relative z-10">OF</span>
+          {/* Logo dari Supabase Bucket */}
+          <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <img
+              src="https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/FotoFO/2%20(1).png"
+              alt="OFFICE FO.ID Logo"
+              className="w-full h-full object-contain p-1" // object-contain agar logo tidak terpotong
+            />
           </div>
           <span className={`font-bold text-xl tracking-tight transition-colors duration-300 ${isScrolled ? 'text-gray-900' : 'text-white'
             }`}>
@@ -70,8 +75,8 @@ export default function Header() {
               key={link.id}
               onClick={() => scrollToSection(link.id)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isScrolled
-                  ? 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
-                  : 'text-white/90 hover:text-white hover:bg-white/10'
+                ? 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
+                : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`}
             >
               {link.name}
@@ -82,8 +87,8 @@ export default function Header() {
           <button
             onClick={() => scrollToSection('clients')}
             className={`ml-4 px-6 py-2.5 rounded-full text-sm font-semibold transition-all active:scale-95 shadow-md ${isScrolled
-                ? 'bg-blue-600 text-white hover:bg-blue-700'
-                : 'bg-white text-blue-600 hover:bg-gray-100'
+              ? 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-white text-blue-600 hover:bg-gray-100'
               }`}
           >
             Collaborate Now

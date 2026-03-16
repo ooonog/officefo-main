@@ -25,8 +25,12 @@ export default function Hero() {
 
       <div className="relative z-20 text-center px-6 max-w-4xl">
         <div className="mb-8 inline-block">
-          <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-2xl flex items-center justify-center shadow-2xl">
-            <span className="text-white font-bold text-4xl">OF</span>
+          <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-2xl overflow-hidden group-hover:scale-105 transition-transform duration-300">
+            <img
+              src="https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/FotoFO/2%20(1).png"
+              alt="OFFICE FO.ID Logo"
+              className="w-full h-full object-contain p-2"
+            />
           </div>
         </div>
 
@@ -38,20 +42,12 @@ export default function Hero() {
           Empowering the Digital Future🌐, Let's explore tech & build a smarter tomorrow!🚀
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex justify-center">
           <button
             onClick={() => scrollToNext()}
             className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             Explore Our Work
-          </button>
-          <button
-            onClick={() =>
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            }
-            className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all"
-          >
-            Join Community
           </button>
         </div>
       </div>

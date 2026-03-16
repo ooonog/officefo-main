@@ -19,7 +19,7 @@ export default function Achievements() {
   }, []);
 
   return (
-    <section id="achievements" className="py-24 bg-white overflow-hidden">
+    <section id="profiles" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* --- Bagian 1: Company Profile Singkat --- */}
@@ -99,7 +99,7 @@ export default function Achievements() {
 
         {/* --- Bagian 2: Member Voices (Full Image Grid) --- */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Member Voices</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What They Say?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-6">
             Inspirasi dan pesan dari para talenta digital di komunitas kami.
           </p>

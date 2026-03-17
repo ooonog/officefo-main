@@ -55,16 +55,19 @@ export default function Achievements() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.5 }}
               >
-                <span className="block text-3xl font-bold text-gray-900">100+</span>
+                {/* Menggunakan warna Blue-600 untuk kesan profesional */}
+                <span className="block text-3xl font-bold text-blue-600">20+</span>
                 <span className="text-sm text-gray-500">Active Members</span>
               </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
-                <span className="block text-3xl font-bold text-gray-900">50+</span>
+                {/* Menggunakan warna Cyan-500 untuk kesan inovasi digital */}
+                <span className="block text-3xl font-bold text-cyan-500">10+</span>
                 <span className="text-sm text-gray-500">Projects Done</span>
               </motion.div>
             </div>

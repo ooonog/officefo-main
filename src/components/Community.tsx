@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 
 const activities = [
   { id: 1, url: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80', title: 'Gathering' },
-  { id: 2, url: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80', title: 'Buka Bersama 2026' },
-  { id: 3, url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80', title: 'Latihan Lomba Kompetensi Siswa' },
-  { id: 4, url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80', title: 'Rapat Koordinasi' },
+  { id: 2, url: 'https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/Bukber.jpeg', title: 'Buka Bersama 2026' },
+  { id: 3, url: 'https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/Latihan.jpeg', title: 'Latihan Lomba Kompetensi Siswa' },
+  { id: 4, url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80', title: 'Pengerjaan Project' },
   { id: 5, url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80', title: 'Bermain Bersama' },
 ];
 

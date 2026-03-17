@@ -21,7 +21,7 @@ export default function Community() {
   }, []);
 
   return (
-    <section id="community" className="py-32 bg-[#FBFBFD] overflow-hidden relative">
+    <section id="community" className="py-24 bg-[#FBFBFD] overflow-hidden relative">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/40 blur-[120px] rounded-full -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">

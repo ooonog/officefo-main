@@ -1,8 +1,8 @@
 import { ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   const scrollToNext = () => {
-    // Ubah 'achievements' menjadi 'projects' agar mengarah ke section Our Projects
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
@@ -12,53 +12,90 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden"
     >
+      {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center z-0"
+        className="absolute inset-0 bg-cover bg-center z-0 scale-105"
         style={{
           backgroundImage:
             'url(https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/home1.JPG)',
         }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-slate-900/70 to-cyan-900/80 z-10" />
+      {/* Overlay Gradient - Transisi ke warna section di bawahnya (#FBFBFD) agar seamless */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/60 to-[#FBFBFD] z-10" />
 
-      <div className="relative z-20 text-center px-6 max-w-4xl">
-        <div className="mb-8 inline-block">
-          <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-2xl overflow-hidden group-hover:scale-105 transition-transform duration-300">
+      {/* Kontainer Utama - Ditambahkan w-full, flex-col, dan items-center */}
+      {/* class -mt-16 digunakan untuk mengangkat konten sedikit ke atas untuk mengimbangi Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="relative z-20 w-full max-w-4xl px-6 flex flex-col items-center justify-center text-center -mt-16"
+      >
+        {/* Logo (Kini Bergaya Glassy) */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="mb-8"
+        >
+          <div className="w-28 h-28 bg-white/20 backdrop-blur-xl rounded-[2rem] flex items-center justify-center shadow-2xl border border-white/40 overflow-hidden hover:scale-105 transition-transform duration-500">
             <img
               src="https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/FotoFO/2%20(1).png"
               alt="OFFICE FO.ID Logo"
-              className="w-full h-full object-contain p-2"
+              className="w-full h-full object-contain p-4 drop-shadow-lg"
             />
           </div>
-        </div>
+        </motion.div>
 
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-          OFFICE FO.ID
+        {/* Title */}
+        <h1 className="text-6xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight drop-shadow-2xl">
+          OFFICE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">FO.ID</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
-          Quality Over Quantity: Membangun Talenta Digital Berkualitas untuk Masa Depan yang Lebih Baik.
+        {/* Subtitle */}
+        <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-2xl font-medium drop-shadow-md">
+          <span className="font-bold text-white">Quality Over Quantity:</span> Membangun Talenta Digital Berkualitas untuk Masa Depan yang Lebih Baik.
         </p>
 
-        <div className="flex justify-center">
+        {/* Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
           <button
-            onClick={() => scrollToNext()} // Sekarang memicu scroll ke 'projects'
-            className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            onClick={() => scrollToNext()}
+            className="bg-white/10 backdrop-blur-md text-white border border-white/40 px-8 py-4 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all duration-500 shadow-2xl hover:shadow-blue-500/20 transform hover:-translate-y-1 tracking-wide uppercase text-sm"
           >
             Explore Our Work
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <button
+      {/* Scroll Down Indicator */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
         onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white animate-bounce cursor-pointer"
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-3 cursor-pointer group outline-none"
       >
-        <ChevronDown size={40} />
-      </button>
+        <span className="text-[10px] uppercase tracking-[0.3em] font-black text-white/70 group-hover:text-white transition-colors duration-300">
+          Scroll
+        </span>
+
+        {/* Animasi memantul yang lebih halus (smooth) menggunakan Framer Motion */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="p-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white shadow-lg group-hover:bg-white group-hover:text-blue-600 transition-all duration-500"
+        >
+          <ChevronDown size={24} strokeWidth={2.5} />
+        </motion.div>
+      </motion.button>
     </section>
   );
 }

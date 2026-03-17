@@ -2,10 +2,11 @@ import { ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const scrollToNext = () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+  // Fungsi tunggal yang menerima ID tujuan (dinamis)
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -26,8 +27,7 @@ export default function Hero() {
       {/* Overlay Gradient - Transisi ke warna section di bawahnya (#FBFBFD) agar seamless */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/60 to-[#FBFBFD] z-10" />
 
-      {/* Kontainer Utama - Ditambahkan w-full, flex-col, dan items-center */}
-      {/* class -mt-16 digunakan untuk mengangkat konten sedikit ke atas untuk mengimbangi Header */}
+      {/* Kontainer Utama */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -60,14 +60,14 @@ export default function Hero() {
           <span className="font-bold text-white">Quality Over Quantity:</span> Membangun Talenta Digital Berkualitas untuk Masa Depan yang Lebih Baik.
         </p>
 
-        {/* Button */}
+        {/* Button - Diarahkan ke "projects" */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           <button
-            onClick={() => scrollToNext()}
+            onClick={() => scrollToSection('projects')}
             className="bg-white/10 backdrop-blur-md text-white border border-white/40 px-8 py-4 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all duration-500 shadow-2xl hover:shadow-blue-500/20 transform hover:-translate-y-1 tracking-wide uppercase text-sm"
           >
             Explore Our Work
@@ -75,12 +75,12 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll Down Indicator */}
+      {/* Scroll Down Indicator - Diarahkan ke "profiles" */}
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        onClick={scrollToNext}
+        onClick={() => scrollToSection('profiles')}
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-3 cursor-pointer group outline-none"
       >
         <span className="text-[10px] uppercase tracking-[0.3em] font-black text-white/70 group-hover:text-white transition-colors duration-300">

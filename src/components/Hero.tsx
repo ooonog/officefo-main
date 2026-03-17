@@ -40,7 +40,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
-          Empowering the Digital Future🌐, Let's explore tech & build a smarter tomorrow!🚀
+          Quality Over Quantity: Membangun Talenta Digital Berkualitas untuk Masa Depan yang Lebih Baik.
         </p>
 
         <div className="flex justify-center">

@@ -41,9 +41,9 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? 'py-3 bg-white/80 backdrop-blur-lg shadow-lg'
-        : 'py-5 bg-transparent'
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-7xl rounded-2xl border ${isScrolled
+          ? 'bg-white/40 backdrop-blur-xl border-white/20 shadow-2xl py-3'
+          : 'bg-transparent border-transparent py-5'
         }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">

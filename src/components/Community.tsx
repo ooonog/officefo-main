@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const activities = [
-  { id: 1, url: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80', title: 'Gathering' },
-  { id: 2, url: 'https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/Bukber.jpeg', title: 'Buka Bersama 2026' },
+  { id: 1, url: 'https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/HalBi.JPG', title: 'Halal Bihalal' },
+  { id: 2, url: 'https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/Bukber.jpeg', title: 'Buka Bersama 2024' },
   { id: 3, url: 'https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/Latihan.jpeg', title: 'Latihan Lomba Kompetensi Siswa' },
-  { id: 4, url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80', title: 'Pengerjaan Project' },
+  { id: 4, url: 'https://dfesvignkjryconnbidf.supabase.co/storage/v1/object/public/DokumentasiFO/BukaBer26.jpeg', title: 'Buka Bersama 2026' },
   { id: 5, url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80', title: 'Bermain Bersama' },
 ];
 
